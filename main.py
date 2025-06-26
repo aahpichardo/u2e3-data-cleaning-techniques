@@ -15,7 +15,7 @@ duplicates = df.duplicated(subset=['year_month', 'country_of_residence', 'visa',
 print(f"\nRegistros duplicados conceptualmente: {duplicates.sum()}")
 
 # 4. Verificar consistencia de categorías
-print("\nValores únicos en columnas categóricas:")
+print("\nValores unicos en columnas de categorias:")
 print("passenger_type:", df['passenger_type'].unique())
 print("direction:", df['direction'].unique())
 print("citizenship:", df['citizenship'].unique())
@@ -26,5 +26,5 @@ print("status:", df['status'].unique())
 df['year_month'] = pd.to_datetime(df['year_month'])
 
 # Mostrar información del dataframe limpio
-print("\nInformación del dataframe después de limpieza:")
+print("\nInformacion del dataframe despues de limpieza:")
 print(df.info())
