@@ -1,0 +1,55 @@
+Dim_Time
+---------
+time_key (PK)
+year_month
+month
+year
+quarter
+
+Dim_Country
+-----------
+country_key (PK)
+country_name
+region
+
+Dim_Visa
+--------
+visa_key (PK)
+visa_type
+visa_category
+
+Dim_Passenger
+-------------
+passenger_key (PK)
+passenger_type
+direction
+citizenship
+
+Fact_Migration
+--------------
+migration_key (PK)
+time_key (FK)
+country_key (FK)
+visa_key (FK)
+passenger_key (FK)
+estimate
+standard_error
+month_of_release
+status
+
+
+//////////////////
+
+
+
++-------------+       +----------------+       +---------------+
+|  Dim_Time   |       |  Fact_Migration|       |  Dim_Country  |
++-------------+       +----------------+       +---------------+
+| PK: time_key|<------| FK: time_key   |------>| PK: country_key|
++-------------+       | FK: country_key|       +---------------+
+                      | FK: visa_key   |
++-------------+       | FK: passenger_k|       +---------------+
+|Dim_Passenger|       | estimate       |       |   Dim_Visa    |
++-------------+       | standard_error |       +---------------+
+| PK: pass_key|<------| status         |------>| PK: visa_key  |
++-------------+       +----------------+       +---------------+
